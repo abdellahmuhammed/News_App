@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/HomeLayoutSccreen/HomePageScreen/HomePageScreen.dart';
+import 'package:newsapp/homePageScreen/HomePageScreen.dart';
 
+void main()async {
 
-void main() {
-  runApp(const MyApp());
+    runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {

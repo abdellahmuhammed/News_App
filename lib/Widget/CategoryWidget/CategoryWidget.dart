@@ -1,35 +1,47 @@
+
 import 'package:flutter/material.dart';
 import 'package:newsapp/Widget/components/componentsWidget.dart';
+import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
 
 class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({super.key});
+  const CategoryWidget({super.key, required this.articleModel});
+
+  final ResultsListModel articleModel;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(10),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.asset(
-                'assets/images/photo_2022-01-07_16-29-53.jpg',
-                fit: BoxFit.fill,
-                height: MediaQuery.of(context).size.height*.15,
-                width: MediaQuery.of(context).size.height*.2,
-              )),
-          mySizedBox(width: 10),
-        Expanded(child:   Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            defaultTextTitle(text: 'Tittle'),
-            defaultTextSubTitle(text: 'SubTittle'),
-            mySizedBox(height: 10),
-            defaultTextSubTitle(text: 'dfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdh\nfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhj\njdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfddfhjjdfhdhfhdhfd' ,
-            ),
-          ],
-        ),),
+            borderRadius: BorderRadius.circular(10),
+            child: articleModel.image == null
+                ? const CircularProgressIndicator() // مش شغاله ابقي شوفها بعدين
+                : Image.network(
+                    '${articleModel.image}',
+                    fit: BoxFit.fill,
+                    height: MediaQuery.of(context).size.height * .35,
+                    width: MediaQuery.of(context).size.width * 1,
+                  ),
+          ),
+          mySizedBox(height: 10),
+          defaultTextTitle(text: articleModel.tittle),
+          mySizedBox(height: 10),
+          defaultTextSubTitle(text: articleModel.subTittle ?? '' , align:TextAlign.right ),
+          mySizedBox(height: 10),
+          Row(
+            children: [
+              defaultTextSubTitle(
+                text: articleModel.publishedAt ?? '',
+              ),
+              const Spacer(),
+              defaultTextSubTitle(
+                text: articleModel.author ?? '',
+              ),
+            ],
+          ),
         ],
       ),
     );

@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:newsapp/WebServices/NewsServices.dart';
 import 'package:newsapp/Widget/TabBarViewWidget/TabBarViewWidget.dart';
 import 'package:newsapp/Widget/defaultAppBArHomePAgeScreen/defaultAppBArHomePAgeScreen.dart';
 
@@ -14,6 +13,12 @@ class HomePageScreen extends StatelessWidget {
       child: Scaffold(
         appBar: defaultAppBArHomePAgeScreen(),
         body: const TabBarViewWidget(),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            NewsServices().getGeneralNews();
+          },
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }

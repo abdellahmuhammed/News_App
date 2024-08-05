@@ -51,6 +51,7 @@ Widget defaultTextTitle({
     Text(
       ' $text',
       maxLines: maxLine,
+      textDirection:TextDirection.rtl ,
       overflow: textOverflow,
       style: TextStyle(
         fontSize: fontSize,
@@ -66,11 +67,13 @@ Widget defaultTextSubTitle({
   Color color = Colors.grey,
   int maxLine = 3,
   TextOverflow textOverflow = TextOverflow.ellipsis,
+  TextAlign align = TextAlign.left
 }) =>
     Text(
       ' $text',
       maxLines: maxLine,
       overflow: textOverflow,
+      textAlign:align ,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWight,
