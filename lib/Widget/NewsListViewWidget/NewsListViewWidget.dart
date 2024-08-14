@@ -13,7 +13,7 @@ class NewsListViewWidget extends StatefulWidget {
 }
 
 class _NewsListViewWidgetState extends State<NewsListViewWidget> {
-  List<ResultsListModel> resultsList = [];
+  List<ResultsModel> resultsList = [];
 
   @override
   void initState() {

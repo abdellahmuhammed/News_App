@@ -6,7 +6,7 @@ import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key, required this.articleModel});
 
-  final ResultsListModel articleModel;
+  final ResultsModel articleModel;
 
   @override
   Widget build(BuildContext context) {

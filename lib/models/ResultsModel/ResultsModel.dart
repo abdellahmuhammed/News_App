@@ -1,11 +1,11 @@
-class ResultsListModel {
+class ResultsModel {
   final String? image;
   final String tittle;
   final String? subTittle;
   final String? author;
   final dynamic publishedAt;
 
-  ResultsListModel(
+  ResultsModel(
       {required this.image,
       required this.tittle,
       required this.subTittle,

@@ -13,7 +13,7 @@ class GeneralNewsScreen extends StatefulWidget {
 }
 
 class _GeneralNewsScreenState extends State<GeneralNewsScreen> {
-  List<ResultsListModel> resultsList = [];
+  List<ResultsModel> resultsList = [];
 
   @override
   void initState() {

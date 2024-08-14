@@ -13,7 +13,7 @@ class SportsNewsScreen extends StatefulWidget {
 }
 
 class _SportsNewsScreenState extends State<SportsNewsScreen> {
-  List<ResultsListModel> resultsList = [];
+  List<ResultsModel> resultsList = [];
 
   @override
   void initState() {
