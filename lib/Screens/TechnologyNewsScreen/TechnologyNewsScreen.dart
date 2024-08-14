@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/WebServices/NewsServices.dart';
@@ -25,6 +27,7 @@ class _TechnologyNewsScreenState extends State<TechnologyNewsScreen> {
     resultsList = await NewsServices().getTechnologyNews();
     setState(() {});
   }
+
 //6565
   @override
   Widget build(BuildContext context) {

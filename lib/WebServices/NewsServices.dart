@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:dio/dio.dart';
 import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
 

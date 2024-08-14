@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, avoid_print
+
 import 'package:flutter/material.dart';
 
 PreferredSizeWidget defaultAppBarHomePage() => AppBar(
@@ -51,7 +53,7 @@ Widget defaultTextTitle({
     Text(
       ' $text',
       maxLines: maxLine,
-      textDirection:TextDirection.rtl ,
+      textDirection: TextDirection.rtl,
       overflow: textOverflow,
       style: TextStyle(
         fontSize: fontSize,
@@ -60,20 +62,19 @@ Widget defaultTextTitle({
       ),
     );
 
-Widget defaultTextSubTitle({
-  required String text,
-  double fontSize = 14.0,
-  FontWeight fontWight = FontWeight.normal,
-  Color color = Colors.grey,
-  int maxLine = 3,
-  TextOverflow textOverflow = TextOverflow.ellipsis,
-  TextAlign align = TextAlign.left
-}) =>
+Widget defaultTextSubTitle(
+        {required String text,
+        double fontSize = 14.0,
+        FontWeight fontWight = FontWeight.normal,
+        Color color = Colors.grey,
+        int maxLine = 3,
+        TextOverflow textOverflow = TextOverflow.ellipsis,
+        TextAlign align = TextAlign.left}) =>
     Text(
       ' $text',
       maxLines: maxLine,
       overflow: textOverflow,
-      textAlign:align ,
+      textAlign: align,
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWight,

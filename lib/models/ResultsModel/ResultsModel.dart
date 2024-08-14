@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 class ResultsModel {
   final String? image;
   final String tittle;
@@ -16,6 +18,5 @@ class ResultsModel {
   String toString() {
     super.toString();
     return '\n image $image \n tittle $tittle \nsubTittle $subTittle \n author $author \npublishedAt $publishedAt';
-
   }
 }

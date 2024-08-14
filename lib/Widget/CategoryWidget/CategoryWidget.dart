@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:newsapp/Widget/components/componentsWidget.dart';
@@ -29,7 +30,8 @@ class CategoryWidget extends StatelessWidget {
           mySizedBox(height: 10),
           defaultTextTitle(text: articleModel.tittle),
           mySizedBox(height: 10),
-          defaultTextSubTitle(text: articleModel.subTittle ?? '' , align:TextAlign.right ),
+          defaultTextSubTitle(
+              text: articleModel.subTittle ?? '', align: TextAlign.right),
           mySizedBox(height: 10),
           Row(
             children: [

@@ -17,7 +17,6 @@ class _NewsListViewWidgetState extends State<NewsListViewWidget> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     getGeneralNews();
   }

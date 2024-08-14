@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:newsapp/Screens/BusinessNewsScreen/BusinessNewsScreen.dart';
 import 'package:newsapp/Screens/GeneralNewsScreen/GeneralNewsScreen.dart';
