@@ -25,7 +25,7 @@ class _TechnologyNewsScreenState extends State<TechnologyNewsScreen> {
     resultsList = await NewsServices().getTechnologyNews();
     setState(() {});
   }
-
+//6565
   @override
   Widget build(BuildContext context) {
     return ConditionalBuilder(
