@@ -14,9 +14,13 @@ class ResultsModel {
       required this.author,
       required this.publishedAt});
 
-  @override
-  String toString() {
-    super.toString();
-    return '\n image $image \n tittle $tittle \nsubTittle $subTittle \n author $author \npublishedAt $publishedAt';
+  factory ResultsModel.fromJson(Map<String, dynamic> jsonData) {
+    return ResultsModel(
+      image: jsonData['image_url'],
+      tittle: jsonData['title'],
+      subTittle: jsonData['description'],
+      author: jsonData['source_name'],
+      publishedAt: jsonData['pubDate'],
+    );;
   }
 }

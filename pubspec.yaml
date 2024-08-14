@@ -33,6 +33,10 @@ dependencies:
   dio:
   internet_connection_checker:
   conditional_builder_null_safety:
+  cached_network_image:
+  webview_flutter:
+
+
 
 
 

@@ -1,94 +1,61 @@
-// ignore_for_file: file_names, avoid_print
-
 import 'package:flutter/material.dart';
 
-PreferredSizeWidget defaultAppBarHomePage() => AppBar(
-      title: defaultTextTitle(text: 'News Cloud'),
-      actions: [
-        IconButton(
-          onPressed: () {
-            print('Dark mode');
-          },
-          icon: const Icon(Icons.dark_mode),
-        ),
-        IconButton(
-          onPressed: () {
-            print('Searching mode');
-          },
-          icon: const Icon(Icons.search),
-        ),
-      ],
-    );
-
-PreferredSizeWidget defaultNewsAppBar({
-  required String tittle,
-  double fontSize = 25.0,
-  FontWeight fontWight = FontWeight.bold,
-  Color color = Colors.black,
-  int maxLine = 1,
-  TextOverflow textOverflow = TextOverflow.ellipsis,
-}) =>
-    AppBar(
-      backgroundColor: Colors.transparent,
-      title: Text(
-        tittle,
-        maxLines: maxLine,
-        overflow: textOverflow,
-        style: TextStyle(
-          fontSize: fontSize,
-          fontWeight: fontWight,
-          color: color,
-        ),
-      ),
-    );
-
-Widget defaultTextTitle({
-  required String text,
-  double fontSize = 25.0,
-  FontWeight fontWight = FontWeight.bold,
-  Color color = Colors.black,
-  int maxLine = 1,
-  TextOverflow textOverflow = TextOverflow.ellipsis,
-}) =>
+// Default text widget for main titles
+Widget buildTextTitle(
+        {required String tittle,
+        double fontSize = 25.0,
+        FontWeight fontWeight = FontWeight.bold,
+        Color color = Colors.black,
+        int maxLines = 1,
+        TextOverflow textOverflow = TextOverflow.ellipsis,
+        TextAlign textAlign = TextAlign.right}) =>
     Text(
-      ' $text',
-      maxLines: maxLine,
+      tittle,
+      textAlign: textAlign,
+      maxLines: maxLines,
       textDirection: TextDirection.rtl,
       overflow: textOverflow,
-      style: TextStyle(
+      style: buildTextStyle(
         fontSize: fontSize,
-        fontWeight: fontWight,
+        fontWeight: fontWeight,
         color: color,
       ),
     );
 
-Widget defaultTextSubTitle(
-        {required String text,
-        double fontSize = 14.0,
-        FontWeight fontWight = FontWeight.normal,
-        Color color = Colors.grey,
-        int maxLine = 3,
-        TextOverflow textOverflow = TextOverflow.ellipsis,
-        TextAlign align = TextAlign.left}) =>
-    Text(
-      ' $text',
-      maxLines: maxLine,
-      overflow: textOverflow,
-      textAlign: align,
-      style: TextStyle(
-        fontSize: fontSize,
-        fontWeight: fontWight,
-        color: color,
-      ),
-    );
-
-Widget mySizedBox({
-  Color color = Colors.white,
-  double? height = 0,
-  double? width = 0,
+// Default text widget for subtitles
+Widget buildTextSubtitle({
+  required String subTitle,
+  double fontSize = 14.0,
+  FontWeight fontWeight = FontWeight.normal,
+  Color color = Colors.grey,
+  int maxLines = 3,
+  TextOverflow textOverflow = TextOverflow.ellipsis,
+  TextAlign textAlign = TextAlign.right,
 }) =>
-    Container(
-      width: width,
-      height: height,
+    Text(
+      subTitle,
+      maxLines: maxLines,
+      overflow: textOverflow,
+      textAlign: textAlign,
+      style: buildTextStyle(
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+      ),
+    );
+
+// Reusable text style method for different text elements
+TextStyle buildTextStyle({
+  required double fontSize,
+  required FontWeight fontWeight,
+  required Color color,
+}) =>
+    TextStyle(
+      fontSize: fontSize,
+      fontWeight: fontWeight,
       color: color,
+    );
+
+Widget buildCircularProgressIndicator() => const Center(
+      child: CircularProgressIndicator(),
     );

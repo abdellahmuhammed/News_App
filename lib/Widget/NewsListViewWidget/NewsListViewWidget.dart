@@ -1,48 +1,71 @@
 // ignore_for_file: file_names
 
-import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/WebServices/NewsServices.dart';
 import 'package:newsapp/Widget/CategoryWidget/CategoryWidget.dart';
 import 'package:newsapp/Widget/components/componentsWidget.dart';
 import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
 
-class NewsListViewWidget extends StatefulWidget {
-  const NewsListViewWidget({super.key});
+class BuildNewsListView extends StatefulWidget {
+  const BuildNewsListView({super.key, required this.category});
+
+  final String category;
 
   @override
-  State<NewsListViewWidget> createState() => _NewsListViewWidgetState();
+  State<BuildNewsListView> createState() => _BuildNewsListViewState();
 }
 
-class _NewsListViewWidgetState extends State<NewsListViewWidget> {
-  List<ResultsModel> resultsList = [];
+class _BuildNewsListViewState extends State<BuildNewsListView> {
+ late Future<List<ResultsModel>> newsFuture;
 
   @override
   void initState() {
     super.initState();
-    getGeneralNews();
-  }
-
-  Future<void> getGeneralNews() async {
-    resultsList = await NewsServices().getGeneralNews();
-    setState(() {});
+    newsFuture = NewsServices().getNews(category: widget.category);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ConditionalBuilder(
-      condition: (resultsList.isNotEmpty),
-      builder: (context) => ListView.separated(
-        physics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) => CategoryWidget(
-          articleModel: resultsList[index],
-        ),
-        separatorBuilder: (context, index) => mySizedBox(),
-        itemCount: resultsList.length,
+    return FutureBuilder<List<ResultsModel>>(
+        future: newsFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                buildCircularProgressIndicator(),
+                buildTextTitle(tittle: 'Data is Loading')
+              ],
+            );
+          }
+          else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          }
+          else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            return NewsListView(resultsList: snapshot.data!);
+          }
+           else {
+            return const Center(child: Text('No sports news available'));
+          }
+        });
+  }
+}
+
+class NewsListView extends StatelessWidget {
+  const NewsListView({super.key, required this.resultsList});
+
+  final List<ResultsModel> resultsList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index) => CategoryWidget(
+        resultsModel: resultsList[index],
       ),
-      fallback: (context) => const Center(
-        child: CircularProgressIndicator(),
-      ),
+      separatorBuilder: (context, index) => const SizedBox(),
+      itemCount: resultsList.length,
     );
   }
 }
