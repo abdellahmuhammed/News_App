@@ -37,40 +37,29 @@ class BuildTabBarView extends StatelessWidget {
 }
 
 PreferredSizeWidget buildHomeAppBar({required String title}) => AppBar(
-  title: buildTextTitle(tittle: title),
-  actions: [
-    IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.dark_mode),
-    ),
-    IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.search),
-    ),
-  ],
-  bottom: const TabBar(
-    tabs: [
-      Tab(
-        text: 'General',
-        icon: Icon(Icons.all_inclusive_outlined),
+      title: buildTextTitle(tittle: title),
+      bottom: const TabBar(
+        tabs: [
+          Tab(
+            text: 'General',
+            icon: Icon(Icons.all_inclusive_outlined),
+          ),
+          Tab(
+            text: 'Business',
+            icon: Icon(Icons.business),
+          ),
+          Tab(
+            text: 'Sports',
+            icon: Icon(Icons.sports),
+          ),
+          Tab(
+            text: 'Tech',
+            icon: Icon(Icons.computer),
+          ),
+          Tab(
+            text: 'Science',
+            icon: Icon(Icons.science),
+          ),
+        ],
       ),
-      Tab(
-        text: 'Business',
-        icon: Icon(Icons.business),
-      ),
-      Tab(
-        text: 'Sports',
-        icon: Icon(Icons.sports),
-      ),
-      Tab(
-        text: 'Tech',
-        icon: Icon(Icons.computer),
-      ),
-      Tab(
-        text: 'Science',
-        icon: Icon(Icons.science),
-      ),
-    ],
-  ),
-);
-
+    );
