@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 // Default text widget for main titles
 Widget buildTextTitle(
-        {required String tittle,
+        {
+          required String tittle,
         double fontSize = 25.0,
         FontWeight fontWeight = FontWeight.bold,
         Color color = Colors.black,
@@ -15,11 +16,6 @@ Widget buildTextTitle(
       maxLines: maxLines,
       textDirection: TextDirection.rtl,
       overflow: textOverflow,
-      style: buildTextStyle(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        color: color,
-      ),
     );
 
 // Default text widget for subtitles
@@ -37,11 +33,6 @@ Widget buildTextSubtitle({
       maxLines: maxLines,
       overflow: textOverflow,
       textAlign: textAlign,
-      style: buildTextStyle(
-        fontSize: fontSize,
-        fontWeight: fontWeight,
-        color: color,
-      ),
     );
 
 // Reusable text style method for different text elements

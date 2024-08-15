@@ -16,7 +16,7 @@ class BuildNewsListView extends StatefulWidget {
 }
 
 class _BuildNewsListViewState extends State<BuildNewsListView> {
- late Future<List<ResultsModel>> newsFuture;
+  late Future<List<ResultsModel>> newsFuture;
 
   @override
   void initState() {
@@ -38,14 +38,11 @@ class _BuildNewsListViewState extends State<BuildNewsListView> {
                 buildTextTitle(tittle: 'Data is Loading')
               ],
             );
-          }
-          else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          }
-          else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+          } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return NewsListView(resultsList: snapshot.data!);
-          }
-           else {
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}'));
+          } else {
             return const Center(child: Text('No sports news available'));
           }
         });

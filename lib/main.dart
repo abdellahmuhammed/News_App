@@ -1,18 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/Screen/HomePageScreen/HomePageScreen.dart';
+import 'package:newsapp/Widget/components/thems.dart';
 
-void main() async {
+void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
-  // This widget is the root of your application.
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+
+class _MyAppState extends State<MyApp> {
+
+  bool isDark = false;
+
+  void buildDarkMOde(){
+
+    setState(() {
+      isDark =!isDark;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return  const MaterialApp(
+    return     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePageScreen(),
+      theme:lightTheme,
+      darkTheme:darkTheme ,
+      themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+      home:   HomePageScreen(buildDarkMOde:buildDarkMOde, context,),
     );
   }
 }
+
+
