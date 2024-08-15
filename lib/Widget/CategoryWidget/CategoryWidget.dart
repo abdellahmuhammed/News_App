@@ -15,7 +15,12 @@ class CategoryWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: InkWell(
-        onTap: (){
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => WebViewScreen(url: resultsModel.link),
+            ),
+          );
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
