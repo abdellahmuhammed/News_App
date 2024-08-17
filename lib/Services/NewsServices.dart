@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:dio/dio.dart';
-import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
+import 'package:newsapp/models/ResultsModel.dart';
 
 class NewsServices {
   final Dio dio = Dio();

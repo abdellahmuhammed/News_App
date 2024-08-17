@@ -1,10 +1,10 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:newsapp/WebServices/NewsServices.dart';
-import 'package:newsapp/Widget/CategoryWidget/CategoryWidget.dart';
-import 'package:newsapp/Widget/components/componentsWidget.dart';
-import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
+import 'package:newsapp/Services/NewsServices.dart';
+import 'package:newsapp/Widget/CategoryWidget.dart';
+import 'package:newsapp/shared/componentsWidget.dart';
+import 'package:newsapp/models/ResultsModel.dart';
 
 class BuildNewsListView extends StatefulWidget {
   const BuildNewsListView({super.key, required this.category});

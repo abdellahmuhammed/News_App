@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/Screen/HomePageScreen/HomePageScreen.dart';
-import 'package:newsapp/Widget/components/thems.dart';
+import 'package:newsapp/Screen/HomePageScreen.dart';
+import 'package:newsapp/shared/thems.dart';
 
 void main() {
   runApp(const MyApp());

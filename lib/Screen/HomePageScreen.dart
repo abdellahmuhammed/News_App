@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
-import 'package:newsapp/Widget/NewsListViewWidget/NewsListViewWidget.dart';
-import 'package:newsapp/Widget/components/componentsWidget.dart';
+import 'package:newsapp/Widget/NewsListViewWidget.dart';
+import 'package:newsapp/shared/componentsWidget.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen(context ,{ super.key, required this.buildDarkMOde,});

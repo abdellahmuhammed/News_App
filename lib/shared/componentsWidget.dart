@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 Widget buildTextTitle(
         {
           required String tittle,
-        double fontSize = 25.0,
+        double fontSize = 30.0,
         FontWeight fontWeight = FontWeight.bold,
         Color color = Colors.black,
         int maxLines = 1,

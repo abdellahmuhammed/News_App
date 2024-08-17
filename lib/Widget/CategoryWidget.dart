@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:newsapp/Screen/WebViewScreen/WebViewScreen.dart';
-import 'package:newsapp/Widget/components/componentsWidget.dart';
-import 'package:newsapp/models/ResultsModel/ResultsModel.dart';
+import 'package:newsapp/Screen/WebViewScreen.dart';
+import 'package:newsapp/shared/componentsWidget.dart';
+import 'package:newsapp/models/ResultsModel.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CategoryWidget extends StatelessWidget {
