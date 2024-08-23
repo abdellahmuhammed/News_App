@@ -1,117 +1,60 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-ThemeData lightTheme = ThemeData(
-  textTheme: const TextTheme(
-    bodyLarge: TextStyle(
-      color: Colors.black,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
+
+ThemeData lightTheme(BuildContext context) {
+  return _buildTheme(
+      context,
+      textColor: Colors.black,
+      backgroundColor: Colors.white);
+}
+
+ThemeData darkTheme(BuildContext context) {
+  return _buildTheme(
+    context,
+    textColor: Colors.white,
+    backgroundColor: Colors.grey.shade900,
+  );
+}
+
+ThemeData _buildTheme(BuildContext context,
+    {required Color textColor, required Color backgroundColor}) {
+
+  return ThemeData(
+    textTheme: TextTheme(
+      titleLarge: TextStyle(
+        color: textColor,
+        fontSize: 25.0,
+        fontWeight: FontWeight.bold,
+      ),
+      bodyLarge: TextStyle(
+        color: textColor,
+        fontSize: 14.0,
+        fontWeight: FontWeight.normal,
+      ),
     ),
-    bodyMedium: TextStyle(
-      color: Colors.black,
-      fontSize: 14.0,
-      fontWeight: FontWeight.normal,
+    scaffoldBackgroundColor: backgroundColor,
+    appBarTheme: AppBarTheme(
+      backgroundColor:  backgroundColor,
+      elevation: 0.0,
+      titleTextStyle: TextStyle(
+        color: textColor,
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
+      iconTheme: IconThemeData(
+        color: textColor,
+      ),
     ),
-    titleMedium: TextStyle(
-      color: Colors.black,
-      fontSize: 14.0,
-      fontWeight: FontWeight.normal,
+    inputDecorationTheme: InputDecorationTheme(
+      // text Form Filed
+      filled: true, // عشان تعرف
+      fillColor: backgroundColor.withOpacity(0.1),
+      labelStyle: TextStyle(
+        color: textColor,
+      ),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
     ),
-  ),
-  scaffoldBackgroundColor: Colors.white,
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.white,
-    elevation: 20.0,
-    selectedItemColor: Colors.blue,
-    unselectedItemColor: Colors.black,
-    unselectedIconTheme: IconThemeData(
-      color: Colors.grey[600],
-      size: 30.0,
-    ),
-    selectedIconTheme: const IconThemeData(
-      color: Colors.blue,
-      size: 30.0,
-    ),
-    unselectedLabelStyle: const TextStyle(
-        color: Colors.black, fontSize: 18.0, fontWeight: FontWeight.normal),
-    selectedLabelStyle: const TextStyle(
-        color: Colors.black, fontSize: 20.0, fontWeight: FontWeight.bold),
-  ),
-  appBarTheme: const AppBarTheme(
-    titleSpacing: 20.0,
-    centerTitle: true,
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      statusBarIconBrightness: Brightness.dark,
-    ),
-    backgroundColor: Colors.white,
-    elevation: 0.0,
-    titleTextStyle: TextStyle(
-      color: Colors.black,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-    ),
-    iconTheme: IconThemeData(
-      color: Colors.black,
-    ),
-  ),
-);
-ThemeData darkTheme = ThemeData(
-  primarySwatch: Colors.blue,
-  drawerTheme: DrawerThemeData(backgroundColor: Colors.black12.withOpacity(.6)),
-  secondaryHeaderColor: Colors.white,
-  textTheme: const TextTheme(
-    bodyLarge: TextStyle(
-      color: Colors.white,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-    ),
-    bodyMedium: TextStyle(
-      color: Colors.white,
-      fontSize: 14.0,
-      fontWeight: FontWeight.normal,
-    ),
-    titleMedium: TextStyle(
-      color: Colors.white,
-      fontSize: 14.0,
-      fontWeight: FontWeight.normal,
-    ),
-  ),
-  scaffoldBackgroundColor: Colors.black,
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    backgroundColor: Colors.black12.withOpacity(.6),
-    elevation: 20.0,
-    selectedItemColor: Colors.blue,
-    unselectedItemColor: Colors.white,
-    unselectedIconTheme: IconThemeData(
-      color: Colors.grey[600],
-      size: 30.0,
-    ),
-    selectedIconTheme: const IconThemeData(
-      color: Colors.blue,
-      size: 30.0,
-    ),
-    unselectedLabelStyle: const TextStyle(
-        color: Colors.white, fontSize: 18.0, fontWeight: FontWeight.normal),
-    selectedLabelStyle: const TextStyle(
-        color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
-  ),
-  appBarTheme: AppBarTheme(
-    titleSpacing: 20.0,
-    systemOverlayStyle: SystemUiOverlayStyle(
-      statusBarColor: Colors.black12.withOpacity(.6),
-      statusBarIconBrightness: Brightness.light,
-    ),
-    backgroundColor: Colors.black12.withOpacity(.6),
-    elevation: 0.0,
-    titleTextStyle: const TextStyle(
-      color: Colors.white,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
-    ),
-    iconTheme: const IconThemeData(
-      color: Colors.white,
-    ),
-  ),
-);
+  );
+}

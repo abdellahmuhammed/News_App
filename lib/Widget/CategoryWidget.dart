@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/Screen/WebViewScreen.dart';
-import 'package:newsapp/shared/componentsWidget.dart';
 import 'package:newsapp/models/ResultsModel.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key, required this.resultsModel});
@@ -27,17 +25,38 @@ class CategoryWidget extends StatelessWidget {
           children: [
             _buildImage(context),
             _sizedBox(),
-            buildTextTitle(
-              tittle: resultsModel.tittle,
-            ),
+            buildTittleText(context),
             _sizedBox(),
-            buildTextSubtitle(
-                subTitle: resultsModel.subTittle ?? 'Unknown subTittle'),
+            buildDescriptionText(context,
+                description:
+                    '${resultsModel.subTittle != resultsModel.tittle ? resultsModel.subTittle : 'وصف الخبر غير متاح حاليا'}'),
             _sizedBox(),
-            _buildFooter(),
+            _buildFooter(context),
           ],
         ),
       ),
+    );
+  }
+
+  Text buildDescriptionText(BuildContext context,
+      {required String description}) {
+    return Text(
+      description,
+      style: Theme.of(context).textTheme.bodyLarge,
+      textAlign: TextAlign.right,
+      maxLines: 3,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  Text buildTittleText(BuildContext context) {
+    return Text(
+      resultsModel.tittle,
+      textAlign: TextAlign.right,
+      maxLines: 1,
+      textDirection: TextDirection.rtl,
+      overflow: TextOverflow.ellipsis,
+      style: Theme.of(context).textTheme.titleLarge,
     );
   }
 
@@ -56,15 +75,17 @@ class CategoryWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildFooter() {
+  Widget _buildFooter(BuildContext context) {
     return Row(
       children: [
-        buildTextSubtitle(
-          subTitle: resultsModel.publishedAt ?? 'Unknown Date',
+        buildDescriptionText(
+          context,
+          description: resultsModel.author ?? 'مؤلف غير معروف',
         ),
         const Spacer(),
-        buildTextSubtitle(
-          subTitle: resultsModel.author ?? 'Unknown Author',
+        buildDescriptionText(
+          context,
+          description: resultsModel.publishedAt ?? 'تاريخ النشر غير معروف',
         ),
       ],
     );

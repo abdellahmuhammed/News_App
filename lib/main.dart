@@ -27,10 +27,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return     MaterialApp(
+    return   MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme:lightTheme,
-      darkTheme:darkTheme ,
+      theme:lightTheme(context),
+      darkTheme:darkTheme(context) ,
       themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
       home:   HomePageScreen(buildDarkMOde:buildDarkMOde, context,),
     );

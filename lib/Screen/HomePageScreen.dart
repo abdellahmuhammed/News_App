@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:newsapp/Widget/NewsListViewWidget.dart';
-import 'package:newsapp/shared/componentsWidget.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen(context ,{ super.key, required this.buildDarkMOde,});
@@ -14,7 +13,7 @@ class HomePageScreen extends StatelessWidget {
     return DefaultTabController(
       length: 5,
       child: Scaffold(
-        appBar: buildHomeAppBar(title: 'Egypt News' , themMode:buildDarkMOde ),
+        appBar: buildHomeAppBar(title: 'Egypt News' , darkMode:buildDarkMOde ),
         body: const BuildTabBarView(),
       ),
     );
@@ -28,7 +27,7 @@ class BuildTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const TabBarView(
       children: [
-        BuildNewsListView(category: 'world'),
+        BuildNewsListView(category: 'world '),
         BuildNewsListView(category: 'business'),
         BuildNewsListView(category: 'sports'),
         BuildNewsListView(category: 'technology'),
@@ -38,12 +37,12 @@ class BuildTabBarView extends StatelessWidget {
   }
 }
 
-PreferredSizeWidget buildHomeAppBar({required String title ,required VoidCallback themMode , context}) => AppBar(
-  title: buildTextTitle(tittle: title ),
+PreferredSizeWidget buildHomeAppBar({required String title ,required VoidCallback darkMode , context}) => AppBar(
+  title: Text(title),
   actions: [
     IconButton(
       onPressed: () {
-        themMode();
+        darkMode();
       },
       icon: const Icon(Icons.dark_mode),
     ),
