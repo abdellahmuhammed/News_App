@@ -35,7 +35,7 @@ class _BuildNewsListViewState extends State<BuildNewsListView> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 buildCircularProgressIndicator(),
-                buildTextTitle(tittle: 'Data is Loading')
+                Text('Data is Loading')
               ],
             );
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
